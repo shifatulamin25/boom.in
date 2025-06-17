@@ -1,0 +1,94 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#toggleSidebar {
+  background: none;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  min-height: calc(100vh - 120px);
+}
+
+aside {
+  width: 220px;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+aside nav ul {
+  list-style: none;
+}
+
+aside nav ul li {
+  margin-bottom: 1rem;
+}
+
+aside nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  background: #fff;
+}
+main section {
+  margin-bottom: 2rem;
+}
+
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  aside {
+    position: fixed;
+    left: -240px;
+    top: 60px;
+    height: calc(100% - 60px);
+    background-color: #f4f4f4;
+    z-index: 100;
+  }
+
+  aside.open {
+    transform: translateX(240px);
+  }
+
+  .container {
+    flex-direction: column;
+  }
+}
